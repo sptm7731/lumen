@@ -1,0 +1,248 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fcfc38;
+    padding: 20px;
+    color: black;
+}
+
+/* Left header */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header .logo {
+    width: 70px;
+}
+
+.clinic-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Button */
+.open-btn {
+    background: white;
+    border: 3px solid black;
+    padding: 12px 22px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: 0.2s;
+}
+
+.open-btn:hover {
+    background: #fcfc38;
+}
+
+/* Right hours text */
+.hours-text {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+    max-width: 260px;
+}
+
+/* BLACK TRIM */
+.black-trim {
+    width: 100%;
+    height: 6px;
+    background: black;
+}
+
+/*  FIXED WORKING IMAGE SLIDER  */
+.slider-container {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+    background: #ffffff;
+    border-bottom: 6px solid black;
+}
+
+/* The sliding track */
+.slider-track {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 1s ease-in-out;
+    height: 100%;
+}
+
+/* Each slide */
+.slide-img {
+    width: 100%;
+    /* Full slide width */
+    height: 350px;
+    flex: 0 0 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* MAIN CONTENT SECTIONS */
+.content-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 10%;
+    gap: 40px;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 1s forwards;
+    background: white;
+}
+
+.section-img {
+    width: 45%;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 3px solid black;
+}
+
+.section-text {
+    width: 50%;
+}
+
+.section-text h2 {
+    margin-bottom: 15px;
+    color: black;
+    border-left: 5px solid #fcfc38;
+    padding-left: 10px;
+}
+
+.section-text p {
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+/*  ALTERNATING LEFT/RIGHT IMAGE POSITIONS  */
+.slide-in-left {
+    flex-direction: row;
+    /* Image left, text right */
+}
+
+.slide-in-right {
+    flex-direction: row-reverse;
+    /* Image right, text left */
+}
+
+/* Animations */
+@keyframes slideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-120px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        opacity: 0;
+        transform: translateX(120px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FEATURES SECTION */
+.features {
+    background: #fcfc38;
+    padding: 50px 10%;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.feature-list {
+    list-style: none;
+    max-width: 600px;
+    margin: auto;
+}
+
+.feature-list li {
+    padding: 12px;
+    margin-bottom: 10px;
+    background: white;
+    border-left: 5px solid black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+}
+
+/* FOOTER */
+.footer {
+    background: #fcfc38;
+    color: black;
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .header-left {
+        flex-direction: column;
+    }
+
+    .slider-container {
+        height: 250px;
+    }
+
+    .slide-img {
+        height: 250px;
+    }
+
+    .content-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section-img,
+    .section-text {
+        width: 100%;
+    }
+
+    .hours-text {
+        max-width: 100%;
+        text-align: center;
+    }
+}
