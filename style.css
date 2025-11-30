@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #fcfc38;
+    background: #ffde59;
     padding: 20px;
     color: black;
 }
@@ -45,7 +45,7 @@
 }
 
 .open-btn:hover {
-    background: #fcfc38;
+    background: #ffde59;
 }
 
 /* Right hours text */
@@ -118,7 +118,7 @@
 .section-text h2 {
     margin-bottom: 15px;
     color: black;
-    border-left: 5px solid #fcfc38;
+    border-left: 5px solid #ffde59;
     padding-left: 10px;
 }
 
@@ -177,7 +177,7 @@
 
 /* FEATURES SECTION */
 .features {
-    background: #fcfc38;
+    background: #ffde59;
     padding: 50px 10%;
 }
 
@@ -204,7 +204,7 @@
 
 /* FOOTER */
 .footer {
-    background: #fcfc38;
+    background: #ffde59;
     color: black;
     text-align: center;
     padding: 30px 0;

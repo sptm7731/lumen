@@ -16,7 +16,7 @@
 
         <!-- LEFT SIDE: LOGO + NAME -->
         <div class="header-left">
-            <img src="logo.png" alt="Clinic Logo" class="logo">
+            <img src="logo2.jpg" alt="Clinic Logo" class="logo">
             <h1 class="clinic-name">Lumen Dental Care</h1>
         </div>
 
@@ -25,8 +25,9 @@
 
         <!-- RIGHT SIDE HOURS -->
         <div class="hours-text">
-            Open from <strong>Thursday 11am - 11pm</strong><br>
-            until <strong>Tuesday 11am - 11pm</strong>
+            Open from <strong>Thursday</strong><br>
+            until <strong>Tuesday</strong><br>
+            time: <strong>10am - 2pm , 4pm - 10pm</strong>
         </div>
 
     </header>
@@ -100,9 +101,9 @@
     <!-- FOOTER -->
     <footer class="footer">
         <h3>Contact Us For Reservation</h3>
-        <p><strong>Phone:</strong> +88 01734850085</p>
-        <p><strong>Email:</strong> imtiazanammahmood@gmail.com</p>
-        <p><strong>Address:</strong>Shohag AC counter,malibagh,Dhaka</p>
+        <p><strong>Phone:</strong> +88 01914071196</p>
+        <p><strong>Email:</strong> lumendentalcare@gmail.com</p>
+        <p><strong>Address:</strong>113 DIT road,malibagh railgate,Dhaka 1217</p>
     </footer>
 
 
@@ -110,18 +111,35 @@
     <script>
         function checkOpen() {
             const now = new Date();
-            const day = now.getDay();
+            const day = now.getDay(); // 0 = Sunday, 1 = Monday ... 6 = Saturday
             const hour = now.getHours();
+            const minute = now.getMinutes();
 
             let open = false;
 
-            if (day === 4 && hour >= 11) open = true;
-            else if (day === 5 || day === 6 || day === 0 || day === 1) open = true;
-            else if (day === 2 && hour < 23) open = true;
+            // Wednesday closed
+            if (day === 3) {
+                open = false;
+            } else {
+                // Open between 11:00 and 23:00
+                if (hour > 10 && hour < 22) {
+                    open = true;
+                } else if (hour === 10 && minute >= 0) {
+                    open = true;
+                } else if (hour === 22 && minute === 0) {
+                    open = true;
+                }
+
+                // BREAK: 14:00 – 16:00
+                if ((hour > 14 && hour < 16) || (hour === 14) || (hour === 15)) {
+                    open = false;
+                }
+            }
 
             alert(open ? "Yes, we are open!" : "We are closed.");
         }
     </script>
+
 
     <!-- SLIDER SCRIPT -->
     <script>
