@@ -20,7 +20,8 @@
 .header-left {
     display: flex;
     align-items: center;
-    gap: 15px;
+    /* gap: 15px; */
+    justify-content: flex-start;
 }
 
 .header .logo {
@@ -41,7 +42,12 @@
     font-weight: bold;
     cursor: pointer;
     border-radius: 12px;
-    transition: 0.2s;
+    transition: 0.3s;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+
 }
 
 .open-btn:hover {
@@ -63,10 +69,10 @@
     background: black;
 }
 
-/*  FIXED WORKING IMAGE SLIDER  */
+/* IMAGE SLIDER  */
 .slider-container {
     width: 100%;
-    height: 350px;
+    height: 500px;
     overflow: hidden;
     position: relative;
     background: #ffffff;
@@ -91,6 +97,27 @@
     display: block;
 }
 
+/* Base state: hidden */
+.slide-in-left,
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(-50px);
+    /* left by default, right will override later */
+    transition: all 0.8s ease-out;
+}
+
+/* Slide from right */
+.slide-in-right {
+    transform: translateX(50px);
+}
+
+/* Active state: animate into view */
+.slide-in-left.active,
+.slide-in-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 /* MAIN CONTENT SECTIONS */
 .content-section {
     display: flex;
@@ -100,9 +127,24 @@
     gap: 40px;
     opacity: 0;
     transform: translateY(40px);
-    animation: fadeUp 1s forwards;
+    animation: fadeUp 2s forwards;
     background: white;
 }
+
+/* Section 2 background color */
+.content-section:nth-of-type(2) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 10%;
+    gap: 40px;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 2s forwards;
+    background: #ffde59;
+
+}
+
 
 .section-img {
     width: 45%;
@@ -126,6 +168,9 @@
     line-height: 1.6;
     font-size: 1.1em;
 }
+
+
+
 
 /*  ALTERNATING LEFT/RIGHT IMAGE POSITIONS  */
 .slide-in-left {
@@ -175,6 +220,33 @@
     }
 }
 
+/* DOCTOR SECTION */
+.doctor-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 60px 10%;
+    background-color: #ffde59;
+    /* optional, can change to match your site */
+}
+
+/* Image styling */
+.doctor-section .section-img {
+    width: 500px;
+    /* adjust as needed */
+    height: auto;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+/* Text styling */
+.doctor-section .section-text {
+    max-width: 600px;
+}
+
+
+
 /* FEATURES SECTION */
 .features {
     background: #ffde59;
@@ -202,13 +274,76 @@
     font-weight: bold;
 }
 
+.sk-ww-google-reviews {
+    max-height: 300px;
+    /* adjust height */
+    overflow-y: scroll;
+    /* allow scrolling */
+}
+
+.sk-ww-facebook-reels {
+    width: 100%;
+    max-width: 700px;
+    /* or whatever fits your layout */
+    min-height: 400px;
+    /* ensures spinner has space to render */
+    margin: 0 auto;
+    /* center the widget */
+}
+
 /* FOOTER */
 .footer {
     background: #ffde59;
     color: black;
-    text-align: center;
-    padding: 30px 0;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* vertically center both halves */
+    gap: 40px;
 }
+
+/* Two equal halves */
+.footer-left,
+.footer-right {
+    width: 50%;
+}
+
+/* Contact info centered inside the RIGHT half */
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* vertical center */
+    align-items: center;
+    /* horizontal center */
+    text-align: center;
+}
+
+/* Title styling */
+.footer-left h3,
+.footer-right h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+}
+
+/* Contact details */
+.footer-right p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* Map styling */
+.map-container iframe {
+    width: 100%;
+    height: 220px;
+    border: none;
+    border-radius: 8px;
+}
+
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -244,5 +379,33 @@
     .hours-text {
         max-width: 100%;
         text-align: center;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-right {
+        width: 100%;
+    }
+
+    .map-container iframe {
+        height: 260px;
+    }
+
+    .doctor-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .doctor-section .section-img {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .doctor-section .section-text {
+        max-width: 100%;
     }
 }
